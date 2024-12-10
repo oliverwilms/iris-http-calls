@@ -99,6 +99,23 @@ This default parameter lets users to call the installation of the package with t
 ```
 USER>zpm "install iris-http-calls -D SampleToken=OlivertValue"
 ```
+
+```
+USER>zpm "install iris-http-calls -D SampleToken=OlivertValue"
+
+[USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.17/)
+[USER|iris-http-calls]        Reload SUCCESS
+[iris-http-calls]       Module object refreshed.
+[USER|iris-http-calls]        Validate START
+[USER|iris-http-calls]        Validate SUCCESS
+[USER|iris-http-calls]        Compile START
+[USER|iris-http-calls]        Compile SUCCESS
+[USER|iris-http-calls]        Activate START
+[USER|iris-http-calls]        Configure START
+[USER|iris-http-calls]        Configure SUCCESS
+[USER|iris-http-calls]        Activate SUCCESS
+```
+
 And the token value is being used then to setup the production in the following call:
 ```
 <Invoke Class="dc.Demo.Setup" Method="Init" >
