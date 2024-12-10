@@ -97,7 +97,7 @@ You as a developer can provide such a parameter setting with default tag of modu
 
 This default parameter lets users to call the installation of the package with the option of passing of parameter (SampleToken in this case). E.g. the installation call could be run as:
 ```
-USER>zpm "install interoperability-sample -D SampleToken=TokenSecretValue"
+USER>zpm "install iris-http-calls -D SampleToken=OlivertValue"
 ```
 And the token value is being used then to setup the production in the following call:
 ```
