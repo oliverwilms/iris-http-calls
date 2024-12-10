@@ -9,8 +9,9 @@ Parameter ADAPTER = "dc.HTTP.InboundAdapter";
 
 Parameter SETTINGS = "TargetConfigNames:Basic:selector?multiSelect=1&context={Ens.ContextSearch/ProductionItems?targets=1&productionName=@productionId}";
 
-Method OnProcessInput(pInput As %Net.Remote.Object, Output pOutput As %RegisteredObject) As %Status
+Method OnProcessInput(pInput As %Net.HttpResponse, Output pOutput As %RegisteredObject) As %Status
 {
+	Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_"dc.HTTP.Service - OnProcessInput()"
 	Set targets = $LFS(..TargetConfigNames)
 	Set tSC = $$$OK
 	For i=1:1:$LL(targets) {
