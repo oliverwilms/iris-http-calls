@@ -17,7 +17,7 @@ ClassMethod Init(pTokenValue As %String = "") As %Status
 	    Set pImport = tDirectory_"/"_tFilename
 	    Set tSC = ##class(Ens.Config.DefaultSettings).%Import(pImport)
 	    If $$$ISERR(tSC) {
-		    Set ^TESTunit(0-$Get(^TESTunit)) = $System.Status.GetErrorText(tSC)
+		    Set ^TESTunit(0-$Get(^TESTunit),"Import") = $System.Status.GetErrorText(tSC)
 		}
     }
     Quit tSC
