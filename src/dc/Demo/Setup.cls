@@ -2,7 +2,7 @@ Class dc.Demo.Setup
 {
 
 /// Import System Default Settings
-ClassMethod Init(pTokenValue As %String = "") As %Status
+ClassMethod Init(pFilePath As %String = "") As %Status
 {
     Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_"dc.Demo.Setup - Init('"_$Get(TokenValue)_"')"
     Set tSC=$$$OK
@@ -17,8 +17,15 @@ ClassMethod Init(pTokenValue As %String = "") As %Status
 	    Set pImport = tDirectory_"/"_tFilename
 	    Set tSC = ##class(Ens.Config.DefaultSettings).%Import(pImport)
 	    If $$$ISERR(tSC) {
-		    Set ^TESTunit(0-$Get(^TESTunit),"Import") = $System.Status.GetErrorText(tSC)
+		    Set ^TESTunit(0-$Get(^TESTunit)) = $System.Status.GetErrorText(tSC)
 		}
+    }
+    Set tDirectory = $ZU(12)_pFilePath
+    Set tBoolean = ##class(%File).CreateNewDir($ZU(12),pFilePath)
+    If ##class(%File).DirectoryExists(tDirectory) {
+        Set production = "dc.Demo.Production"
+        Set item = "EnsLib.File.PassthroughOperation"
+        Set st = ##class(shvarov.i14y.Settings).SetValue(production,item,"FilePath",tDirectory)
     }
     Quit tSC
 }
