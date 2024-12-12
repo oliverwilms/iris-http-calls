@@ -17,15 +17,15 @@ ClassMethod Init(pFilePath As %String = "") As %Status
 	    Set pImport = tDirectory_"/"_tFilename
 	    Set tSC = ##class(Ens.Config.DefaultSettings).%Import(pImport)
 	    If $$$ISERR(tSC) {
-		    Set ^TESTunit(0-$Get(^TESTunit)) = $System.Status.GetErrorText(tSC)
+		    Set ^TESTunit(0-$Get(^TESTunit),"Import") = $System.Status.GetErrorText(tSC)
 		}
     }
     Set tDirectory = $ZU(12)_pFilePath
     Set tBoolean = ##class(%File).CreateNewDir($ZU(12),pFilePath)
     If ##class(%File).DirectoryExists(tDirectory) {
-        Set production = "dc.Demo.Production"
+        Set prodClass = "dc.Demo.Production"
         Set item = "EnsLib.File.PassthroughOperation"
-        Set st = ##class(shvarov.i14y.Settings).SetValue(production,item,"FilePath",tDirectory)
+        Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,item,"FilePath",tDirectory)
     }
     Quit tSC
 }
