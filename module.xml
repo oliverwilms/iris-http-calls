@@ -20,6 +20,7 @@
           <Version>*</Version>
         </ModuleReference>
       </Dependencies>
+      <FileCopy Name="src/i14y/" Target="${mgrdir}i14y/"/>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="Ens.Config.DefaultSettings.ESD"/>
       <Resource Directory="i14y" Name="TestLookupTable.LUT"/>
