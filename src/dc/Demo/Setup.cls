@@ -14,7 +14,7 @@ ClassMethod Init(pTokenValue As %String = "") As %Status
         If $$$ISERR(tSC) {
 	        Do ##class(%SYS.System).WriteToConsoleLog("Unable to Delete Extent Ens.Config.DefaultSettings",0,0)
 	    }
-	    Set pImport = tDirectory_"\"_tFilename
+	    Set pImport = tDirectory_"/"_tFilename
 	    Set tSC = ##class(Ens.Config.DefaultSettings).%Import(pImport)
 	    If $$$ISERR(tSC) {
 		    Set ^TESTunit(0-$Get(^TESTunit)) = $System.Status.GetErrorText(tSC)
