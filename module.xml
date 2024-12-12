@@ -27,9 +27,9 @@
       <Resource Name="dc.HTTP.PKG"/>
       <Resource Name="dc.Demo.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
-      <Default Name="SampleToken" Value="40" />
+      <Default Name="FilePath" Value="iris_http_calls" />
       <Invoke Class="dc.Demo.Setup" Method="Init" >
-         <Arg>${SampleToken}</Arg>
+         <Arg>${FilePath}</Arg>
       </Invoke>
       <Invoke Class="dc.Demo.Setup" Method="StartProduction" >
       </Invoke>
