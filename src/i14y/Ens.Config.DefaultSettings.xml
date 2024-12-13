@@ -2,6 +2,10 @@
 <Export generator="IRIS" version="26" zv="IRIS for UNIX (Ubuntu Server LTS for x86-64 Containers) 2020.4 (Build 521U)" ts="2021-05-10 07:39:07">
 <Document name="Ens.Config.DefaultSettings.ESD">
 <defaultSettings>
+<item production="*" item="dc.HTTP.Service" class="*" setting="HTTPPort" value="443"><Deployable>true</Deployable></item>
 <item production="*" item="dc.HTTP.Service" class="*" setting="HTTPServer" value="fhir.epic.com"><Deployable>true</Deployable></item>
+<item production="*" item="dc.HTTP.Service" class="*" setting="SSLConfig" value="ISC.FeatureTracker.SSL.Config"><Deployable>true</Deployable></item>
+<item production="*" item="dc.HTTP.Service" class="*" setting="URL" value="/interconnect-fhir-oauth/api/FHIR/R4"><Deployable>true</Deployable></item>
 </defaultSettings>
-</Document></Export>
+</Document>
+</Export>
