@@ -92,18 +92,18 @@ the users (not developers) of the module you developed can use parameters to pas
 it can be useful when setup parameters are secret tokens to access particular API.
 You as a developer can provide such a parameter setting with default tag of module XML, e.g. it is done in this [module.xml](https://github.com/intersystems-community/iris-interoperability-template/blob/8cbe3ee1f2eafd2017cfdd59b469dbee8bf2d884/module.xml) example:
 ```
-<Default Name="SampleToken" Value="TokenValue" />
+<Default Name="SampleToken" Value="iris_http_calls" />
 ```
 
 This default parameter lets users to call the installation of the package with the option of passing of parameter (SampleToken in this case). E.g. the installation call could be run as:
 ```
-zpm "install iris-http-calls -D SampleToken=myTokenValue"
+zpm "install iris-http-calls -D FilePath=iris_http_calls"
 ```
 
 ```
-USER>zpm "install iris-http-calls -D SampleToken=OlivertValue"
+USER>zpm "install iris-http-calls -D FilePath=iris_http_calls"
 
-[USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.17/)
+[USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.30/)
 [USER|iris-http-calls]        Reload SUCCESS
 [iris-http-calls]       Module object refreshed.
 [USER|iris-http-calls]        Validate START
