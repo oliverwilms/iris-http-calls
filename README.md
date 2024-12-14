@@ -91,6 +91,7 @@ These default parameters let users call the installation of the package with the
 zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 ```
 
+```
 USER>zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 
 [USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.37/)
@@ -104,6 +105,7 @@ USER>zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/Medi
 [USER|iris-http-calls]        Configure START
 [USER|iris-http-calls]        Configure SUCCESS
 [USER|iris-http-calls]        Activate SUCCESS
+```
 
 The default parameters are used to setup the production in the following call:
 ```
