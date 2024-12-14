@@ -16,7 +16,6 @@ You can alter both the URL and frequency in the service's settings.
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.PNG">
 
 The production has a BPL process. The business process sends this data to a business operation which either saves data to a folder iris-http-calls.
-<img width="864" alt="Screenshot 2020-10-29 at 19 38 58" src="https://user-images.githubusercontent.com/2781759/97606568-fcf32180-1a20-11eb-90de-4257dd2cf552.png">
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
