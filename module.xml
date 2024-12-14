@@ -28,8 +28,10 @@
       <Resource Name="dc.Demo.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
       <Default Name="FilePath" Value="iris_http_calls" />
+      <Default Name="UrlModify" Value="/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3" />
       <Invoke Class="dc.Demo.Setup" Method="Init" >
-         <Arg>${FilePath}</Arg>
+        <Arg>${FilePath}</Arg>
+        <Arg>${UrlModify}</Arg>
       </Invoke>
       <Invoke Class="dc.Demo.Setup" Method="StartProduction" >
       </Invoke>
