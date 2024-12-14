@@ -36,7 +36,7 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 		Set tRequest.Password = objCredential.Password
 	}
 	;
-	If 1 {
+	Try {
 			Do ##class(Oliver.JWT).test()
 			Set pSSLConfiguration = "ISC.FeatureTracker.SSL.Config"
 			Set pApplicationName = "medbank"
@@ -45,7 +45,7 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 			Set pXML = "application/fhir+xml"
 			Set pJSON = "application/fhir+json"
 			Set tSC = tRequest.SetHeader("accept","application/fhir+json")
-		}
+	} Catch {}
 	;
 	Set test = $Get(pTest,0)
 	Set reset = 1
