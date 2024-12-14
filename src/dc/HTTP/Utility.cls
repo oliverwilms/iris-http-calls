@@ -1,7 +1,7 @@
 Class dc.HTTP.Utility
 {
 
-ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As %String, pCred As %String, pSSLConfig As %String, ByRef pResponse As %Net.HttpResponse) As %Status
+ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As %String, pCred As %String, pSSLConfig As %String, ByRef pResponse As %Net.HttpResponse, pTest = 0) As %Status
 {
 	Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_"dc.HTTP.Utility - Call()"
 	Set tSC = $$$OK
@@ -36,7 +36,18 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 		Set tRequest.Password = objCredential.Password
 	}
 	;
-	Set test = 0
+	If 1 {
+			Do ##class(Oliver.JWT).test()
+			Set pSSLConfiguration = "ISC.FeatureTracker.SSL.Config"
+			Set pApplicationName = "medbank"
+			Set tSC = ##class(%SYS.OAuth2.AccessToken).AddAccessToken(tRequest,"header",pSSLConfiguration,pApplicationName)
+			Set ^TESTunit(0-$Get(^TESTunit),"AddAccessToken") = $System.Status.GetErrorText(tSC)
+			Set pXML = "application/fhir+xml"
+			Set pJSON = "application/fhir+json"
+			Set tSC = tRequest.SetHeader("accept","application/fhir+json")
+		}
+	;
+	Set test = $Get(pTest,0)
 	Set reset = 1
 	Set tSC = tRequest.Send(pType,pURL,test,reset)
 	Set ^TESTunit(0-$Get(^TESTunit),"Send") = $System.Status.GetErrorText(tSC)
@@ -48,6 +59,22 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 	Set tSC = pResponse.%Save()
 	Set ^TESTunit(0-$Get(^TESTunit),"Save") = $System.Status.GetErrorText(tSC)
 	Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_pResponse_" : "_$System.Status.GetErrorText(tSC)
+	Quit tSC
+}
+
+ClassMethod TestCall(pTest = 1) As %Status
+{
+	Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_"dc.HTTP.Utility - TestCall()"
+	Set prodClass = "dc.Demo.Production"
+	Set tConfigItem = "dc.HTTP.Service"
+	Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,"HTTPServer",.pHTTPServer)
+	Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,"HTTPPort",.pHTTPPort)
+	Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,"URL",.pURL)
+	Set pType = "GET"
+	Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,"Credentials",.pCredentials)
+	Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,"SSLConfig",.pSSLConfig)
+	Kill pResponse
+	Set tSC = ##class(Utility).Call(pHTTPServer,pHTTPPort,pURL,pType,pCredentials,pSSLConfig,.pResponse,pTest)
 	Quit tSC
 }
 
