@@ -70,7 +70,7 @@ Method OnTask() As %Status
 	Set ^TESTunit(0-$I(^TESTunit)) = $ZDATETIME($NOW(),8,1,3)_" : "_$JOB_" : "_"dc.HTTP.InboundAdapter - OnTask()"
 	Set pType = "GET"
 	Kill pResponse
-	Set tSC = ##class(Utility).Call(..HTTPServer,..HTTPPort,..URL,pType,..Credentials,.pResponse)
+	Set tSC = ##class(Utility).Call(..HTTPServer,..HTTPPort,..URL,pType,..Credentials,..SSLConfig,.pResponse)
 	If $IsObject(pResponse) {
 		Set tSC = ..BusinessHost.ProcessInput(pResponse)
 	}
