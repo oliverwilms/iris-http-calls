@@ -24,10 +24,10 @@ ClassMethod Init(pFilePath As %String = "", pUrlModify As %String = "") As %Stat
     Set tDirectory = $ZU(12)_pFilePath
     Set tBoolean = ##class(%File).CreateNewDir($ZU(12),pFilePath)
     If ##class(%File).DirectoryExists(tDirectory) {
-        Set tConfigItem = "EnsLib.File.PassthroughOperation"
         Set tSetting = "FilePath"
         Try {
-            Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tDirectory)
+            Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,"EnsLib.File.PassthroughOperation",tSetting,tDirectory)
+            Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,"EnsLib.File.PassthroughService",tSetting,tDirectory)
         } Catch {}
     }
     If (pUrlModify '= "") {
