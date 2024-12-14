@@ -1,6 +1,18 @@
 Class dc.Oliver.Ensemble
 {
 
+ClassMethod FindSDS(production As %String = "", configName As %String = "", setting As %String = "", Output value As %String) As %Status
+{
+	If $c(0)[production Set production = ##class(Ens.Director).GetActiveProductionName()
+	If production="" Quit $$$ERROR($$$GeneralError, "Missing production name")
+	If $c(0)[configName Quit $$$ERROR($$$GeneralError, "Missing config name")
+	If $c(0)[setting Quit $$$ERROR($$$GeneralError, "Missing setting name")
+	Set pHostClassName = "*"
+	Set pTargetType = ""
+	Set tBoolean = ##class(Ens.Config.DefaultSettings).%GetSetting(production,configName,pHostClassName,pTargetType,setting,.value)
+	Quit tBoolean
+}
+
 ClassMethod GetSetting(production As %String = "", configName As %String = "", setting As %String = "", Output value As %String) As %Status
 {
 	Kill value
