@@ -95,15 +95,15 @@ You as a developer can provide such a parameter setting with default tag of modu
 <Default Name="SampleToken" Value="iris_http_calls" />
 ```
 
-This default parameter lets users to call the installation of the package with the option of passing of parameters (SampleToken in this case). E.g. the installation call could be run as:
+These default parameters let users call the installation of the package with the option of passing of parameters. E.g. the installation call could be run as:
 ```
 zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 ```
 
 ```
-USER>zpm "install iris-http-calls -D FilePath=iris_http_calls"
+USER>zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 
-[USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.30/)
+[USER|iris-http-calls]        Reload START (/usr/irissys/mgr/.modules/USER/iris-http-calls/0.3.37/)
 [USER|iris-http-calls]        Reload SUCCESS
 [iris-http-calls]       Module object refreshed.
 [USER|iris-http-calls]        Validate START
@@ -116,10 +116,11 @@ USER>zpm "install iris-http-calls -D FilePath=iris_http_calls"
 [USER|iris-http-calls]        Activate SUCCESS
 ```
 
-And the token value is being used then to setup the production in the following call:
+The default parameters are used to setup the production in the following call:
 ```
 <Invoke Class="dc.Demo.Setup" Method="Init" >
-         <Arg>${SampleToken}</Arg>
-      </Invoke>
+  <Arg>${FilePath}</Arg>
+  <Arg>${UrlModify}</Arg>
+</Invoke>
 ```
 
