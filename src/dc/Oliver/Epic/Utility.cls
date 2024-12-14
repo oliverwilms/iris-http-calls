@@ -1,4 +1,4 @@
-Class Oliver.Epic.Utility Extends %RegisteredObject
+Class dc.Oliver.Epic.Utility Extends %RegisteredObject
 {
 
 /// var allergySearchString = "/AllergyIntolerance?patient=" + patientId;
@@ -30,7 +30,7 @@ ClassMethod SetupCredentials() As %Status
 {
     Set tSC = $$$OK
     Set tId = "FHIR"
-    If (0 = ##class(Ens.Config.Credentials).ExistsId(tId)) {
+    If (0 = ##class(Ens.Config.Credentials).%ExistsId(tId)) {
         Set oCredential = ##class(Ens.Config.Credentials).%New()
         Set oCredential.Password = "EpicFhir11!"
         Set oCredential.SystemName = tId
@@ -38,7 +38,7 @@ ClassMethod SetupCredentials() As %Status
         Set tSC = oCredential.%Save()
     }
     Set tId = "FHIRTWO"
-    If (0 = ##class(Ens.Config.Credentials).ExistsId(tId)) {
+    If (0 = ##class(Ens.Config.Credentials).%ExistsId(tId)) {
         Set oCredential = ##class(Ens.Config.Credentials).%New()
         Set oCredential.Password = "EpicFhir11!"
         Set oCredential.SystemName = tId
