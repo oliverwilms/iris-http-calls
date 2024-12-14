@@ -12,7 +12,7 @@ XData ProductionDefinition
   </Item>
   <Item Name="EnsLib.File.PassthroughOperation" Category="" ClassName="EnsLib.File.PassthroughOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
   </Item>
-  <Item Name="dc.HTTP.Process" Category="" ClassName="dc.HTTP.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  <Item Name="dc.HTTP.Process" Category="" ClassName="dc.HTTP.Process" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
   </Item>
 </Production>
 }
