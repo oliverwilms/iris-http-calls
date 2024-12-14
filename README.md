@@ -14,7 +14,7 @@ This sample has an interoperability [production](https://github.com/intersystems
 I configured Call Interval setting to call HTTPServer once every hour. You can change both the URL and frequency in the service's settings.
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.png">
 
-The production has a BPL process. The business process sends this data to a business operation which either saves data to a folder iris-http-calls.
+The HTTP Service has two targets. The response body from each call is sent as a HTTP Generic Message to a BPL business process and also a file operation which saves data to a folder iris-http-calls.
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
