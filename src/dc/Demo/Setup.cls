@@ -9,7 +9,7 @@ ClassMethod Init(pFilePath As %String = "", pUrlModify As %String = "") As %Stat
     Set tDirectory = "/usr/irissys/mgr/i14y"
     Set tFilename = "Ens.Config.DefaultSettings.xml"
     If ##class(%File).DirectoryExists(tDirectory) {
-        Set tSC = ##class(Ens.Config.DefaultSettings).%DeleteExtent()
+        //Set tSC = ##class(Ens.Config.DefaultSettings).%DeleteExtent()
         //$$$ThrowOnError(tSC)
         If $$$ISERR(tSC) {
 	        Do ##class(%SYS.System).WriteToConsoleLog("Unable to Delete Extent Ens.Config.DefaultSettings",0,0)
