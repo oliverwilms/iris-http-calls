@@ -11,9 +11,8 @@ This is an InterSystems IRIS Interoperability solution for HTTP calls
 ## What The Sample Does
 
 This sample has an interoperability [production](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Demo/Production.cls) with an inbound [HTTP Adapter](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Reddit/InboundAdapter.cls) which is used by a [Business Service](https://github.com/intersystems-community/iris-interoperability-template/blob/master/src/dc/Demo/RedditService.cls).
-It reads from HTTPServer every 10 sec.
-You can alter both the URL and frequency in the service's settings.
-<img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.PNG">
+I configured Call Interval setting to call HTTPServer once every hour. You can change both the URL and frequency in the service's settings.
+<img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.png">
 
 The production has a BPL process. The business process sends this data to a business operation which either saves data to a folder iris-http-calls.
 
