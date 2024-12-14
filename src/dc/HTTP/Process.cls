@@ -18,10 +18,13 @@ XData BPL [ XMLNamespace = "http://www.intersystems.com/bpl" ]
 <code name='doPatient' xpos='200' ypos='350' >
 <annotation><![CDATA[Convert the JSON payload to a Dynamic Object]]></annotation>
 <![CDATA[ // Put JSON representation of Patient resource into a dynamic object
- Set doPatient = ##class(%DynamicObject).%FromJSONFile(request.OriginalFilename)
- 
- Set rType = doPatient.resourceType
- Set ^TESTunit(0-$Get(^TESTunit),"rType") = rType]]>
+ Try {
+   Set doPatient = ##class(%DynamicObject).%FromJSONFile(request.OriginalFilename)
+   Set rType = doPatient.resourceType
+   Set ^TESTunit(0-$Get(^TESTunit),"rType") = rType
+ } Catch {
+   Set ^TESTunit(0-$Get(^TESTunit),"Catch") = $ZERROR
+ }]]>
 </code>
 </sequence>
 </process>
