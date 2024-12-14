@@ -34,6 +34,9 @@ ClassMethod Init(pFilePath As %String = "", pUrlModify As %String = "") As %Stat
         Set tConfigItem = "dc.HTTP.Service"
         Set tSetting = "URL"
         Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,tSetting,.value)
+        If ($Get(value) = "") {
+            Set tSC = ##class(dc.Oliver.Ensemble).FindSDS(prodClass,tConfigItem,tSetting,.value)
+        }
         Set tModifiedURL = $Get(value)_pUrlModify
         Try {
             Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tModifiedURL)
