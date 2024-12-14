@@ -26,15 +26,22 @@ ClassMethod Init(pFilePath As %String = "", pUrlModify As %String = "") As %Stat
     If ##class(%File).DirectoryExists(tDirectory) {
         Set tConfigItem = "EnsLib.File.PassthroughOperation"
         Set tSetting = "FilePath"
-        Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tDirectory)
+        Try {
+            Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tDirectory)
+        } Catch {}
     }
     If (pUrlModify '= "") {
         Set tConfigItem = "dc.HTTP.Service"
         Set tSetting = "URL"
         Set tSC = ##class(dc.Oliver.Ensemble).GetSetting(prodClass,tConfigItem,tSetting,.value)
         Set tModifiedURL = $Get(value)_pUrlModify
-        Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tModifiedURL)
+        Try {
+            Set st = ##class(shvarov.i14y.Settings).SetValue(prodClass,tConfigItem,tSetting,tModifiedURL)
+        } Catch {}
     }
+    Try {
+        Set tSC = ##class(dc.Oliver.Epic.Utility).SetupCredentials()
+    } Catch {}
     Quit tSC
 }
 
