@@ -47,11 +47,7 @@ docker-compose up -d
 
 ## How to Run the Sample
 
-Open the [production](http://localhost:52795/csp/user/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Demo.Production) and start it.
-It will start making HTTP calls to HTTPServer using URL.
-
-You can alter the [business rule](http://localhost:52795/csp/user/EnsPortal.RuleEditor.zen?RULE=dc.Demo.FilterPostsRoutingRule) to filter for different words, or to use an email operation to send posts via email.
-<img width="1123" alt="Screenshot 2020-10-29 at 20 05 34" src="https://user-images.githubusercontent.com/2781759/97607761-77707100-1a22-11eb-9ce8-0d14d6f6e315.png">
+Open the [production](http://localhost:52795/csp/user/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Demo.Production) and start it if it is not already running. It makes HTTP calls to HTTPServer using URL.
 
 ## How to alter the template
 This repository is ready to code in VSCode with the ObjectScript plugin.
