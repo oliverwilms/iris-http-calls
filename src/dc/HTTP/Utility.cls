@@ -40,7 +40,8 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 	Set reset = 1
 	Set tSC = tRequest.Send(pType,pURL,test,reset)
 	Set ^TESTunit(0-$Get(^TESTunit),"Send") = $System.Status.GetErrorText(tSC)
-	//Set pResponse = tRequest.HttpResponse
+	Set pResponse = tRequest.HttpResponse
+	Set ^TESTunit(0-$Get(^TESTunit),"StatusLine") = pResponse.StatusLine
 	//Set tmp = ##class(%Stream.TmpCharacter).%New(tRequest.HttpResponse.Data)
 	Set pResponse = ##class(EnsLib.HTTP.GenericMessage).%New(tRequest.HttpResponse.Data)
 	Set ^TESTunit(0-$Get(^TESTunit),"pResponse") = pResponse
