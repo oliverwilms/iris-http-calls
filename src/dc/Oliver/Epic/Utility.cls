@@ -26,4 +26,26 @@ ClassMethod GetURL(pResource As %String = "", pPatient As %String = "") As %Stri
     Quit tURL_pQuery
 }
 
+ClassMethod SetupCredentials() As %Status
+{
+    Set tSC = $$$OK
+    Set tId = "FHIR"
+    If (0 = ##class(Ens.Config.Credentials).ExistsId(tId)) {
+        Set oCredential = ##class(Ens.Config.Credentials).%New()
+        Set oCredential.Password = "EpicFhir11!"
+        Set oCredential.SystemName = tId
+        Set oCredential.Username = "FHIR"
+        Set tSC = oCredential.%Save()
+    }
+    Set tId = "FHIRTWO"
+    If (0 = ##class(Ens.Config.Credentials).ExistsId(tId)) {
+        Set oCredential = ##class(Ens.Config.Credentials).%New()
+        Set oCredential.Password = "EpicFhir11!"
+        Set oCredential.SystemName = tId
+        Set oCredential.Username = "FHIRTWO"
+        Set tSC = oCredential.%Save()
+    }
+    Quit tSC
+}
+
 }
