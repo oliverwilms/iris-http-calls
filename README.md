@@ -95,9 +95,9 @@ You as a developer can provide such a parameter setting with default tag of modu
 <Default Name="SampleToken" Value="iris_http_calls" />
 ```
 
-This default parameter lets users to call the installation of the package with the option of passing of parameter (SampleToken in this case). E.g. the installation call could be run as:
+This default parameter lets users to call the installation of the package with the option of passing of parameters (SampleToken in this case). E.g. the installation call could be run as:
 ```
-zpm "install iris-http-calls -D FilePath=iris_http_calls"
+zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 ```
 
 ```
