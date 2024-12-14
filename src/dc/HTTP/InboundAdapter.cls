@@ -56,7 +56,7 @@ Property ResponseTimeout As %Numeric(MINVAL = -1) [ InitialExpression = 30, Requ
 Property WriteTimeout As %Numeric(MINVAL = -1) [ InitialExpression = -1 ];
 
 /// These are the production settings for this object
-Parameter SETTINGS = "RegistryID:Basic:selector?context={Ens.ServiceRegistry.External.ContextSearch/Services?Protocols_1=REST&Protocols_2=HTTP},HTTPServer:Basic,HTTPPort:Basic,SSLConfig:Connection:sslConfigSelector,SSLCheckServerIdentity:Connection,LocalInterface:Connection:selector?context={Ens.ContextSearch/TCPLocalInterfaces},ProxyServer:Connection,ProxyPort:Connection,ProxyHTTPS:Connection,ProxyHttpTunnel:Connection,URL:Basic,Credentials:Basic:credentialsSelector,UseCookies,ConnectTimeout:Connection,ResponseTimeout:Connection,WriteTimeout:Connection,ProvideMetricsForSAM:Alerting";
+Parameter SETTINGS = "HTTPServer:Basic,HTTPPort:Basic,SSLConfig:Connection:sslConfigSelector,SSLCheckServerIdentity:Connection,LocalInterface:Connection:selector?context={Ens.ContextSearch/TCPLocalInterfaces},ProxyServer:Connection,ProxyPort:Connection,ProxyHTTPS:Connection,ProxyHttpTunnel:Connection,URL:Basic,Credentials:Basic:credentialsSelector,CallInterval:Basic,UseCookies,ConnectTimeout:Connection,ResponseTimeout:Connection,WriteTimeout:Connection,ProvideMetricsForSAM:Alerting";
 
 Method OnInit() As %Status
 {
