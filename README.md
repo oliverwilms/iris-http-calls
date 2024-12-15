@@ -82,12 +82,13 @@ USER> d ##class(dc.Demo.Setup).Init($system.Util.GetEnviron("SAMPLE_TOKEN"))
 
 Users of this module can use parameters to pass data to the module during installation and customize the File Path for the file operation and file service as well as modify URL.
 it can be useful when setup parameters are secret tokens to access particular API.
-You as a developer can provide such a parameter setting with default tag of module XML, e.g. it is done in this [module.xml](https://github.com/intersystems-community/iris-interoperability-template/blob/8cbe3ee1f2eafd2017cfdd59b469dbee8bf2d884/module.xml) example:
+You as a developer can provide such parameters with default tag in [module.xml](https://github.com/oliverwilms/iris-http-calls/blob/master/module.xml).
 ```
-<Default Name="SampleToken" Value="iris_http_calls" />
+<Default Name="FilePath" Value="iris_http_calls" />
+<Default Name="UrlModify" Value="/Patient?_id=egqBHVfQlt4Bw3XGXoxVxHg3" />
 ```
 
-These default parameters let users call the installation of the package with the option of passing of parameters. E.g. the installation call could be run as:
+These default parameters enable users to call the installation of the package with the option of passing of parameters. E.g. the installation call could be run as:
 ```
 zpm "install iris-http-calls -D FilePath=iris_http_calls -D UrlModify=/MedicationStatement?patient=egqBHVfQlt4Bw3XGXoxVxHg3"
 ```
@@ -115,3 +116,4 @@ The default parameters are used to setup the production in the following call:
   <Arg>${UrlModify}</Arg>
 </Invoke>
 ```
+Method Init in dc.Demo.Setup class configures File Service and File Operation using the FilePath parameter. The UrlModify parameter is used to modify the URL setting of the HTTP service.
