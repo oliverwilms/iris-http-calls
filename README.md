@@ -14,7 +14,9 @@ This sample was cloned from [iris-interoperability-template](https://github.com/
 I configured Call Interval setting to call HTTPServer once every hour. You can change both the URL and frequency in the service's settings.
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.png">
 
-The HTTP Service has two targets. The response body from each call is sent as a HTTP Generic Message to a BPL business process and also a file operation which saves data to a folder iris-http-calls.
+Originally the HTTP Service had two targets. The response body from each call was sent as a HTTP Generic Message to a BPL business process and also a file operation which saved data to a folder iris-http-calls.
+
+Now the HTTP Service sends a HTTP Generic Message to a file operation. Then a file service sends the file to a BPL business process.
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
