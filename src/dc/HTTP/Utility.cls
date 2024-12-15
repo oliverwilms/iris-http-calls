@@ -38,9 +38,10 @@ ClassMethod Call(pServer As %String, pPort As %String, pURL As %String, pType As
 	}
 	;
 	Try {
-			Do ##class(Oliver.JWT).test()
 			Set pSSLConfiguration = "ISC.FeatureTracker.SSL.Config"
 			Set pApplicationName = "medbank"
+			Set pScopes = "openid fhirUser"
+			Do ##class(dc.Oliver.OAuth).Auth(pApplicationName,pScopes)
 			Set tSC = ##class(%SYS.OAuth2.AccessToken).AddAccessToken(tRequest,"header",pSSLConfiguration,pApplicationName)
 			Set ^TESTunit(myTESTunit,"AddAccessToken") = $System.Status.GetErrorText(tSC)
 			Set pXML = "application/fhir+xml"
