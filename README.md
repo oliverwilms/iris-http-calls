@@ -80,7 +80,7 @@ USER> d ##class(dc.Demo.Setup).Init($system.Util.GetEnviron("SAMPLE_TOKEN"))
 
 ## package manager production parameters
 
-the users (not developers) of the module you developed can use parameters to pass to the module during installation and setup it.
+Users of this module can use parameters to pass data to the module during installation and customize the File Path for the file operation and file service as well as modify URL.
 it can be useful when setup parameters are secret tokens to access particular API.
 You as a developer can provide such a parameter setting with default tag of module XML, e.g. it is done in this [module.xml](https://github.com/intersystems-community/iris-interoperability-template/blob/8cbe3ee1f2eafd2017cfdd59b469dbee8bf2d884/module.xml) example:
 ```
