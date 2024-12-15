@@ -29,10 +29,10 @@ ClassMethod Auth(pClient As %String = "medbank", pScopes As %String = "", pDEBUG
     }
 }
 
-ClassMethod MakeX509Credentials(pPath As %String = "/home/irisowner/dev/", pPrivateKey As %String = "privatekey.pem", pPublicKey As %String = "publickey509.pem") As %Status
+ClassMethod MakeX509Credentials(pPath As %String = "/home/irisowner/dev/", pPrivateKey As %String = "privatekey.pem", pPublicKey As %String = "publickey509.pem", pAlias As %String = "medbank") As %Status
 {
     Set oX509Credentials = ##class(%SYS.X509Credentials).%New()
-    Set oX509Credentials.Alias = "medbank"
+    Set oX509Credentials.Alias = pAlias
     Set tSC = oX509Credentials.LoadCertificate(pPath_pPublicKey)
     Do $System.Status.DisplayError(tSC)
     Set tSC = oX509Credentials.LoadPrivateKey(pPath_pPrivateKey)
