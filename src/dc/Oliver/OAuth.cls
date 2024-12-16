@@ -43,7 +43,7 @@ ClassMethod DiscoverServer(issuerEndpoint As %String = "", sslConfiguration As %
     Set $Namespace = "%SYS"
     Set tSC = ##class(%SYS.OAuth2.Registration).Discover(issuerEndpoint,sslConfiguration,.server)
     Set $Namespace = myNamespace
-    Quit 1
+    Quit tSC
 }
 
 ClassMethod MakeX509Credentials(pPath As %String = "/home/irisowner/dev/", pPrivateKey As %String = "privatekey.pem", pPublicKey As %String = "publickey509.pem", pAlias As %String = "medbank") As %Status
