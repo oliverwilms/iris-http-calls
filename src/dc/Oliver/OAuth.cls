@@ -29,6 +29,26 @@ ClassMethod Auth(pClient As %String = "medbank", pScopes As %String = "", pDEBUG
     }
 }
 
+ClassMethod CreateClient(pApplicationName As %String = "medbank", pClientId As %String = "") As %Status
+{
+    Set myNamespace = $Namespace
+    Set $Namespace = "%SYS"
+    Set oClient = ##class(OAuth2.Client).%New()
+    Set oClient.ApplicationName = pApplicationName
+    Set oClient.ClientId = pClientId
+    Set oClient.ClientSecret = "x"
+    Set oClient.ClientType = "confidential"
+    Set oEndpoint = ##class(OAuth2.Endpoint).%New()
+    Set oEndpoint.Host = "localhost"
+    Set oEndpoint.Port = 57700
+    Set oClient.RedirectionEndpoint = oEndpoint
+    Set oClient.SSLConfiguration = "ISC.FeatureTracker.SSL.Config"
+    Set tSC = oClient.%Save()
+    Do $System.Status.DisplayError(tSC)
+    Set $Namespace = myNamespace
+    Quit tSC
+}
+
 ClassMethod DiscoverEpicOnFHIR(issuerEndpoint As %String = "", sslConfiguration As %String = "", Output server As %Library.Persistent) As %Status
 {
     Set issuerEndpoint = "https://fhir.epic.com/interconnect-fhir-oauth/oauth2"
