@@ -29,6 +29,23 @@ ClassMethod Auth(pClient As %String = "medbank", pScopes As %String = "", pDEBUG
     }
 }
 
+ClassMethod DiscoverEpicOnFHIR(issuerEndpoint As %String = "", sslConfiguration As %String = "", Output server As %Library.Persistent) As %Status
+{
+    Set issuerEndpoint = "https://fhir.epic.com/interconnect-fhir-oauth/oauth2"
+    Set sslConfiguration = "ISC.FeatureTracker.SSL.Config"
+    Set tSC = ..DiscoverServer(issuerEndpoint,sslConfiguration,.server)
+    Quit tSC
+}
+
+ClassMethod DiscoverServer(issuerEndpoint As %String = "", sslConfiguration As %String = "", Output server As %Library.Persistent) As %Status
+{
+    Set myNamespace = $Namespace
+    Set $Namespace = "%SYS"
+    Set tSC = ##class(%SYS.OAuth2.Registration).Discover(issuerEndpoint,sslConfiguration,.server)
+    Set $Namespace = myNamespace
+    Quit 1
+}
+
 ClassMethod MakeX509Credentials(pPath As %String = "/home/irisowner/dev/", pPrivateKey As %String = "privatekey.pem", pPublicKey As %String = "publickey509.pem", pAlias As %String = "medbank") As %Status
 {
     Set oX509Credentials = ##class(%SYS.X509Credentials).%New()
