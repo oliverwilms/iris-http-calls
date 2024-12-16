@@ -42,6 +42,10 @@ ClassMethod DiscoverServer(issuerEndpoint As %String = "", sslConfiguration As %
     Set myNamespace = $Namespace
     Set $Namespace = "%SYS"
     Set tSC = ##class(%SYS.OAuth2.Registration).Discover(issuerEndpoint,sslConfiguration,.server)
+    If $$$ISOK(tSC) {
+        Set tSC = server.%Save()
+    }
+    Do $System.Status.DisplayError(tSC)
     Set $Namespace = myNamespace
     Quit tSC
 }
