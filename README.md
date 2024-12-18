@@ -10,7 +10,7 @@ This is an InterSystems IRIS Interoperability solution for HTTP calls
 
 ## What The Sample Does
 
-This sample was cloned from [iris-interoperability-template](https://github.com/intersystems-community/iris-interoperability-template). I have reconfigured the interoperability [Production](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/Demo/Production.cls) with an [Inbound HTTP Adapter](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/InboundAdapter.cls) which is used by a [HTTP Business Service](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/Service.cls).
+This sample was cloned from [iris-interoperability-template](https://github.com/intersystems-community/iris-interoperability-template). I have reconfigured the interoperability [Production](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/Demo/Production.cls) with an [Inbound HTTP Adapter](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/InboundAdapter.cls) which is used by a [HTTP Business Service](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/Service.cls). The configuration details for the business service are specified in [System Default Settings](https://github.com/oliverwilms/iris-http-calls/blob/master/src/i14y/Ens.Config.DefaultSettings.xml).
 I configured Call Interval setting to call HTTPServer once every hour. You can change both the URL and frequency in the service's settings.
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/Capture_HTTP_Production.png">
 
