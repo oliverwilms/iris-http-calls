@@ -4,7 +4,7 @@
     <Module>
       <Name>iris-http-calls</Name>
       <Description>InterSystems IRIS Interoperability solution for HTTP calls.</Description>
-      <Version>0.3.87</Version>
+      <Version>0.3.88</Version>
       <Packaging>module</Packaging>
       <Dependencies>
         <ModuleReference>
