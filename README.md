@@ -117,3 +117,5 @@ The default parameters are used to setup the production in the following call:
 </Invoke>
 ```
 Method Init in dc.Demo.Setup class configures File Service and File Operation using the FilePath parameter. The UrlModify parameter is used to modify the URL setting of the HTTP service.
+
+The production makes calls to HTTPServer using modified URL based on CallInterval. The response body is sent in a StreamContainer to a FileOperation. A file service reads the file and passes a Stream Container to a BPL process.
