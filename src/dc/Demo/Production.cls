@@ -7,7 +7,6 @@ XData ProductionDefinition
   <Description>This is a sample Reddit cats and dogs production</Description>
   <ActorPoolSize>2</ActorPoolSize>
   <Item Name="dc.HTTP.Service" Category="" ClassName="dc.HTTP.Service" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="CallInterval">3600</Setting>
     <Setting Target="Host" Name="TargetConfigNames">EnsLib.File.PassthroughOperation</Setting>
   </Item>
   <Item Name="EnsLib.File.PassthroughOperation" Category="" ClassName="EnsLib.File.PassthroughOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
