@@ -1,4 +1,4 @@
-Class dc.Oliver.Epic.Utility Extends %RegisteredObject
+Class dc.Oliver.Epic.Utility
 {
 
 /// var allergySearchString = "/AllergyIntolerance?patient=" + patientId;
