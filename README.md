@@ -23,7 +23,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 
 ## Installation: ZPM
 
-Open IRIS Namespace with Interoperability Enabled.
+Open any IRIS Namespace with Interoperability Enabled.
 Open Terminal and call:
 USER>zpm "install iris-http-calls"
 
