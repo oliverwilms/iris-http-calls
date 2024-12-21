@@ -19,7 +19,7 @@ Originally the HTTP Service had two targets. The response body from each call wa
 
 Now the HTTP Service sends a HTTP Generic Message to a file operation. Then a file service sends the file to a BPL business process.
 
-The BPL summarizes the FHIR bundle like this:
+The [BPL](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/Process.cls) summarizes the FHIR bundle like this:
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/HTTP_Process_Summary.png">
 
 ## Prerequisites
