@@ -19,8 +19,8 @@ XData BPL [ XMLNamespace = "http://www.intersystems.com/bpl" ]
 <annotation><![CDATA[Convert the JSON payload to a Dynamic Object]]></annotation>
 <![CDATA[ // Put JSON representation of Patient resource into a dynamic object
  Try {
-   Set doPatient = ##class(%DynamicObject).%FromJSONFile(request.OriginalFilename)
-   Set rType = doPatient.resourceType
+   Set dao = ##class(%DynamicObject).%FromJSONFile(request.OriginalFilename)
+   Set rType = dao.resourceType
    Set ^TESTunit(0-$Get(^TESTunit),"rType") = rType
  } Catch {
    Set ^TESTunit(0-$Get(^TESTunit),"Catch") = $ZERROR
