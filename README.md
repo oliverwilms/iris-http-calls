@@ -19,6 +19,9 @@ Originally the HTTP Service had two targets. The response body from each call wa
 
 Now the HTTP Service sends a HTTP Generic Message to a file operation. Then a file service sends the file to a BPL business process.
 
+The BPL summarizes the FHIR bundle like this:
+<img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/HTTP_Process_Summary.png">
+
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
