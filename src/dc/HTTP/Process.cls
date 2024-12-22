@@ -33,6 +33,8 @@ XData BPL [ XMLNamespace = "http://www.intersystems.com/bpl" ]
    Set ^TESTunit(0-$Get(^TESTunit),"cls") = cls
    Set summary = {}
    Set list = dao.%Get("entry")
+   Set ^TESTunit(0-$Get(^TESTunit),"list1") = list
+   Set list = cls.entry.apply("$[*].resource")
    Set ^TESTunit(0-$Get(^TESTunit),"list") = list
    Set itr = list.iterator()
    While (itr.hasNext()) {
