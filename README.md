@@ -22,6 +22,11 @@ Now the HTTP Service sends a HTTP Generic Message to a file operation. Then a fi
 The [BPL](https://github.com/oliverwilms/iris-http-calls/blob/master/src/dc/HTTP/Process.cls) summarizes the FHIR bundle like this:
 <img width="1411" alt="Screenshot" src="https://github.com/oliverwilms/bilder/blob/main/HTTP_Process_Summary.png">
 
+After mapping HS package from HSLIB, I can use HS FHIRModel package like this:
+```
+Set cls = $CLASSMETHOD("HS.FHIRModel.R4."_rType,"fromDao",dao)
+```
+
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
